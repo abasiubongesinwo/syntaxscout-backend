@@ -8,7 +8,9 @@ const dashboardRoutes = require("./routes/dashboardRoutes.js");
 const dotenv = require("dotenv");
 dotenv.config();
 
-mongoose.connect('mongodb://localhost:27017/syntaxscoutdatabase')
+const dbURI = process.env.DATABASE;
+
+mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 
