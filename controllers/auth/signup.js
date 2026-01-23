@@ -11,10 +11,10 @@ const signup = async (req, res) => {
     return res.status(400).json({ message: error.details[0].message });
   }
 
-  const existingUser = await User.findOne({ email: value.email });
-  if (existingUser) {
-    return res.status(400).json({ message: "User already exists" });
-  }
+  // const existingUser = await User.findOne({ email: value.email });
+  // if (existingUser) {
+  //   return res.status(400).json({ message: "User already exists" });
+  // }
 
   try {
     const hashedPassword = await bcrypt.hash(value.password, 10);
