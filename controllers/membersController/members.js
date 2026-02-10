@@ -1,7 +1,7 @@
 const  jwt  = require("jsonwebtoken")
 const User = require("../../models/user.model");
 
-async function dashboard(req,res,next){
+async function members(req,res,next){
 
     if(!req.headers.authorization){
         return res.status(400).json({
@@ -57,10 +57,10 @@ if (!user) {
 
     res.status(200).json({
         status:'success',
-        message:'Dashboard fetched successfully',
+        message:'Members fetched successfully',
         user
 
     })
 
 }
-module.exports=dashboard
+module.exports=members
