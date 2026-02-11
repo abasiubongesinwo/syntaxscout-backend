@@ -4,7 +4,7 @@ const cors = require("cors");
 const app = express();
 const port = 8000;
 const authRoute = require ("./routes/auth.js")
-const dashboardRoutes = require("./routes/dashboardRoutes.js");
+const membersDashboardRoutes = require("./routes/membersDashboardRoutes.js");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -20,7 +20,7 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     }));
 
   app.use("/auth", authRoute);
-  app.use("/dashboard", dashboardRoutes);
+  app.use("/dashboard", membersDashboardRoutes);
 
 app.listen(port, () => {
     console.log(`Server running on port https://127.0.0.1:${port}`);
