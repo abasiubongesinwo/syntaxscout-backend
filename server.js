@@ -20,8 +20,10 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     }));
 
   app.use("/auth", authRoute);
-  app.use("/dashboard", membersDashboardRoutes);
+  app.use("/member", membersDashboardRoutes);
 
 app.listen(port, () => {
     console.log(`Server running on port https://127.0.0.1:${port}`);
 });
+
+
