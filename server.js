@@ -10,10 +10,18 @@ dotenv.config();
 
 const dbURI = process.env.DATABASE;
 
-mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('MongoDB connected'))
-    .catch(err => console.log(err));
+// mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log('MongoDB connected'))
+//     .catch(err => console.log(err));
 
+
+mongoose
+  .connect(dbURI)
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.log(err));
+
+
+  
     app.use(express.json());
     app.use(cors({
         origin: ["http://localhost:5173", "https://syntaxscout-frontend.vercel.app"],
