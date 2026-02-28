@@ -24,8 +24,7 @@ const signup = async (req, res) => {
       fullName: value.fullName,
       email: value.email,
       password: hashedPassword,
-      // --- ADD THIS LINE ---
-      role: value.role, // Joi will provide 'user' as default if not sent
+      role: value.role,
     });
 
     await newUser.save();
@@ -35,7 +34,7 @@ const signup = async (req, res) => {
       data: {
         fullName: newUser.fullName,
         email: newUser.email,
-        role: newUser.role, // Include role in the response to verify it worked
+        role: newUser.role,
       },
     });
   } catch (err) {

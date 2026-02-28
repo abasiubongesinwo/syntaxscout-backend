@@ -29,6 +29,7 @@ mongoose
 
   app.use("/auth", authRoute);
   app.use("/member", membersDashboardRoutes);
+  app.use("/admin", membersDashboardRoutes);
 
 app.listen(port, () => {
     console.log(`Server running on port https://127.0.0.1:${port}`);

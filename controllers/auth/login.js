@@ -25,8 +25,6 @@ const login = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
 
-    // --- UPDATED TOKEN PAYLOAD ---
-    // We add 'role: user.role' here so the middleware can read it later
     const token = await jwt.sign(
       { email: user.email, id: user._id, role: user.role },
       process.env.PRIVATE_KEY,
@@ -37,7 +35,7 @@ const login = async (req, res) => {
       message: "user loggedIn successfully",
       data: {
         email: user.email,
-        role: user.role, // Sending it back to frontend helps for UI logic
+        role: user.role,
         token: token,
       },
     });
